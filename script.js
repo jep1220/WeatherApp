@@ -21,7 +21,9 @@ $(document).ready(function() {
       function searchWeather(searchValue) {
         $.ajax({
           
-          url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=e6cf8c17c234148e2aa482d264e65514",
+          url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=844421298D794574C100E3409CEE0499",
+
+          
           dataType: "json",
           success: function(data) {
 
@@ -41,7 +43,7 @@ $(document).ready(function() {
             var card = $("<div>").addClass("card");
             var wind = $("<p>").addClass("card-text").text("Wind Speed: " + data.wind.speed + " MPH");
             var humid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
-            var temp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + " °f");
+            var temp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + " °F");
             var cardBody = $("<div>").addClass("card-body");
             var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
     
@@ -62,8 +64,9 @@ $(document).ready(function() {
       function getForecast(searchValue) {
         $.ajax({
           type: "GET",
+
           url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=e6cf8c17c234148e2aa482d264e65514",
-          dataType: "json",
+          dataType: "JSON",
           success: function(data) {
             
             $("#forecast").html("<h4 class=\"mt-3\">5-Day Forecast:</h4>").append("<div class=\"row\">");
