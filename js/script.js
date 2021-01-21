@@ -21,7 +21,7 @@ $(document).ready(function() {
       function searchWeather(searchValue) {
         $.ajax({
           
-          url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=844421298D794574C100E3409CEE0499",
+          url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=e6cf8c17c234148e2aa482d264e65514",
 
           
           dataType: "json",
