@@ -20,7 +20,7 @@ $(document).ready(function() {
 
       function searchWeather(searchValue) {
         $.ajax({
-          type: "GET",
+          
           url: "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=e6cf8c17c234148e2aa482d264e65514",
           dataType: "json",
           success: function(data) {
@@ -45,13 +45,13 @@ $(document).ready(function() {
             var cardBody = $("<div>").addClass("card-body");
             var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
     
-            // merge and add to page
+            
             title.append(img);
             cardBody.append(title, temp, humid, wind);
             card.append(cardBody);
             $("#today").append(card);
     
-            // call follow-up api endpoints
+            
             getForecast(searchValue);
             getUVIndex(data.coord.lat, data.coord.lon);
           }
@@ -65,13 +65,13 @@ $(document).ready(function() {
           url: "http://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=e6cf8c17c234148e2aa482d264e65514",
           dataType: "json",
           success: function(data) {
-            // overwrite any existing content with title and empty row
+            
             $("#forecast").html("<h4 class=\"mt-3\">5-Day Forecast:</h4>").append("<div class=\"row\">");
     
-            // loop over all forecasts (by 3-hour increments)
+           
             for (var i = 0; i < data.list.length; i++) {
               
-              if (data.list[i].dt_txt.indexOf("15:00:00") !== -1) {
+              if (data.list[i].dt_txt.indexOf("12:00:00") !== -1) {
                 
                 var col = $("<div>").addClass("col-md-2");
                 var card = $("<div>").addClass("card bg-primary text-white");
